@@ -2,7 +2,7 @@
 
 
 <h2>Description</h2>
-Through this project, you will be able to deploy an EC2 instance in a VPC using Terraform on macOS.
+Through this project, you will be able to monitor a buidlings occupancy using a Raspberry Pi along with a PIR sensor; connected to AWS IoT in oder to visualize the data with Amazon Quicksight.
 <br />
 
 <h2>AWS Cloud Map</h2>
@@ -27,30 +27,29 @@ Through this project, you will be able to deploy an EC2 instance in a VPC using 
 
 - <b>AWS Management Console</b>
 - <b>Raspberry Pi</b>
+- <b>Python SDK</b>
 
 
 
 
 <h2>Monitor and Visualize Building Occupancy walk-through:</h2>
 
-- <b>Install Terraform using Homebrew inside your home directory</b>
-- <b>Create a user under IAM service and attach required policies</b>
-- <b>Create new directory and create three empty files within this directory. ("main.tf" , "outputs.tf" , "variables.tf")</b>
-- <b>Add your codes into your "main.tf" file, prompting Terraform to configure an AWS provider and also create an AWS VPC</b>
-- <b>Run "terraform init" in your terminal to initilize and download the AWS provider</b>
-- <b>Review the execution plan and implement the plan by using the command "terraform apply"</b>
-- <b>Create a new workspace by running "terraform workspace new dev" in order to create a VPC for your enviroments</b>
-- <b>After setting up your remote state file, add the following resources utilizing Terraform:</b>
-  - Internet Gateway
-  - 3x Public subnet — one for each AZ ("variables.tf")
-  - 3x Private subnet — one for each AZ ("variables.tf")
-  - 3x Database subnet — one for each AZ ("variables.tf")
-  - Public subnet route table ("main.tf")
-  - Private subnet route table ("main.tf")
-  - Database subnet route table ("main.tf")
-  - EC2 Bastion Host ("variables.tf")
-  - Elastic IP Address
-  - NAT Gateway
+- <b>Connect and setup your PIR Sensore with your Raspberry Pi physically</b>
+- <b>Within AWS IoT Core console, connect your Raspberry Pi to AWS IoT Core and register it as a "thing"; creating policy and certificates</b>
+- <b>Name your "thing"</b>
+- <b>Download your certificates to your Raspberry Pi using the SFTP route</b>
+- <b>Install AWS IoT Python SDK in the terminal of your Raspberry Pi and create a 
+.py" file for your PIR sensor</b>
+- <b>Within the AWS IoT cosole,select "Interact: and copy the HTTPS endpoint into your "py" file</b>
+- <b>Configure your credentials with the certificates created earlier</b>
+- <b>Create a delivery stream with Amazon Kinesis "Pi-to-Kinesis"</b>
+- <b>Within the AWS IoT consle,create a new AWS IoT rule and then test the reception of messages</b>
+- <b>Within Amazon S3 the data can be extracted/downloaded</b>
+- <b>Utilize AWS Glue console and create a table</b>
+- <b>Configure Amazon Athena with Amazon QuickSight in order to analyze the date being observed</b>
+- <b>Create a simple table in Amazon Athena</b>
+- <b>Within Amazon QuickSight, open the console and create a "Neew analysis, New dataset" and choose Athena as a new data source</b>
+- <b>Redseign your AmazonQuicksight visualization to your preferences</b>
 
 
 
